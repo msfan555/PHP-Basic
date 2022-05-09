@@ -31,7 +31,7 @@
     echo $time;
     echo "<br>";
     echo $second;
-    // 之後放到date裡去做日期時間換算的基礎
+    // 秒數之後放到date裡去做日期時間換算的基礎
     echo "<br>";
     echo date("西元 Y 年 m 月 d 日 l", $second);
     echo "<br>";
