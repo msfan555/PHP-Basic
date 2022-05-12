@@ -20,7 +20,7 @@
 
 <body>
     <?php
-    $month = 5;
+    $month = 4;
     ?>
     <table>
         <tr>
@@ -33,13 +33,33 @@
             <td>Sat</td>
         </tr>
         <?php
+        $firstDay=date("Y/").$month."/1";
+        $firstWeekDay=date("w",strtotime($firstDay));
+        $monthDays=date("t",strtotime($firstDay));
+        // t 是識別指定月份有幾天的格式字串
+        $lastDay=date("Y/").$month."/".$monthDays;
+
+        echo $month." 月"."共有 ".$monthDays." 天";
+        echo "<br>";
+        echo "第一天是 ".$firstDay;
+        echo "<br>";
+        echo "第一天是星期 ".$firstWeekDay;
+        echo "<br>";
+        echo "最後一天是 ".$lastDay;
+
 
         for ($i = 0; $i < 6; $i++) {
             echo "<tr>";
             for ($j = 0; $j < 7; $j++) {
                 echo "<td>";
-                echo $j;
-                echo "</td>";
+                if($i==0 && $j==$firstWeekDay){
+                    echo "第一天"; 
+                }else if($i==0 && $j<$firstWeekDay){
+                    echo "";
+                }else{
+                echo $i*7+($j+1);
+            }
+            echo "</td>";
             }
             echo "</tr>";
         }
